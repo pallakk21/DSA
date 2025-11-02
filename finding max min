@@ -1,0 +1,25 @@
+public class Array{
+  public static int maximum(int nums []){
+    int maximum = Integer.MIN_VALUE;
+    for( int i = 0; i < nums.length; i++){
+      if(maximum < nums[i]){
+        maximum = nums[i];
+      }
+
+    } return maximum;
+  }
+  public static int minimum(int nums []){
+     int minimum = Integer.MAX_VALUE;
+    for( int i = 0; i < nums.length; i++){
+      if(minimum >  nums[i]){
+        minimum = nums[i];
+      }
+
+    } return minimum;
+  }
+  public static void main(String args[]){
+    int nums[] = {2,3,6,5,7};
+   System.out.println( "maximum"+ " = "+  maximum(nums));
+   System.out.println( "maximum"+ " = "+ minimum (nums));
+   }
+}
