@@ -1,0 +1,13 @@
+public class Allstring{
+    public static int coulmnno(String s){
+        int result = 0 ;
+        for(int i = 0 ; i<s.length();i++){
+            char ch = s.charAt(i);
+           int value = ch -'A' +1;
+            result = result * 26 +value;
+        } return result ;
+    } public static void main(String[] args) {
+        String s = "AB";
+        System.out.println(coulmnno(s));
+    }
+}
