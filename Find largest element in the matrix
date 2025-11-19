@@ -1,0 +1,21 @@
+public class Twodarray {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 5, 2},
+            {10, 2, 7},
+            {4, 9, 8}
+        };
+
+        int max = matrix[0][0];
+
+        for(int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (matrix[i][j] > max) {
+                    max = matrix[i][j];
+                }
+            }
+        }
+
+        System.out.println("Largest element: " + max);
+    }
+}
