@@ -1,0 +1,11 @@
+public class Bitmanipulation {
+    public static int removeLastBinaryDigit(int n) {
+        return n >> 1;
+    }
+
+    public static void main(String[] args) {
+        int n = 29; 
+        int result = removeLastBinaryDigit(n);
+        System.out.println("removing last binary digit - " + result);
+    }
+}
