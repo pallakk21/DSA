@@ -1,0 +1,11 @@
+public class Bitmanipulation {
+    public static char toLower(char c) {
+        return (char)(c | 32);
+    }
+
+    public static void main(String[] args) {
+        char upper = 'G';
+        char lower = toLower(upper);
+        System.out.println("Lowercase: " + lower);
+    }
+}
