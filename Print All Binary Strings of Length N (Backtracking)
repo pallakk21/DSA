@@ -1,0 +1,22 @@
+public class BinaryStrings {
+
+    public static void generateBinary(int n, String ans) {
+
+        // Base case
+        if (ans.length() == n) {
+            System.out.println(ans);
+            return;
+        }
+
+        // Choice 1: add '0'
+        generateBinary(n, ans + "0");
+
+        // Choice 2: add '1'
+        generateBinary(n, ans + "1");
+    }
+
+    public static void main(String[] args) {
+        int n = 3;
+        generateBinary(n, "");
+    }
+}
