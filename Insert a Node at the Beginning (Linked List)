@@ -1,0 +1,45 @@
+public class InsertAtBeginning {
+
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public static Node insertAtBeginning(Node head, int data) {
+
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+
+        return head;
+    }
+
+    public static void printList(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) {
+
+        Node head = new Node(20);
+        head.next = new Node(30);
+        head.next.next = new Node(40);
+
+        System.out.print("Before Insertion: ");
+        printList(head);
+
+        head = insertAtBeginning(head, 10);
+
+        System.out.print("After Insertion: ");
+        printList(head);
+    }
+}
