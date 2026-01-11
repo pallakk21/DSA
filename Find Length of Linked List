@@ -1,0 +1,31 @@
+public class LengthRecursive {
+
+    static class Node {
+        int data;
+        Node next;
+
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    public static int length(Node head) {
+
+        if (head == null) {
+            return 0;
+        }
+
+        return 1 + length(head.next);
+    }
+
+    public static void main(String[] args) {
+
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.next = new Node(30);
+        head.next.next.next = new Node(40);
+
+        System.out.println("Length of Linked List: " + length(head));
+    }
+}
