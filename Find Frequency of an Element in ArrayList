@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+
+public class FrequencyInArrayList {
+
+    public static int findFrequency(ArrayList<Integer> list, int key) {
+
+        int count = 0;
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) == key) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(10);
+        list.add(20);
+        list.add(10);
+        list.add(30);
+        list.add(10);
+        list.add(40);
+
+        int key = 10;
+
+        System.out.println("Frequency of " + key + ": " + findFrequency(list, key));
+    }
+}
