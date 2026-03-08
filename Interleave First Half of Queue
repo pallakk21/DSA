@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class InterleaveQueue {
+
+    public static void interleave(Queue<Integer> q) {
+
+        int n = q.size();
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < n / 2; i++) {
+            stack.push(q.remove());
+        }
+
+        while (!stack.isEmpty()) {
+            q.add(stack.pop());
+        }
+
+        for (int i = 0; i < n / 2; i++) {
+            q.add(q.remove());
+        }
+
+        for (int i = 0; i < n / 2; i++) {
+            stack.push(q.remove());
+        }
+
+        while (!stack.isEmpty()) {
+            q.add(stack.pop());
+            q.add(q.remove());
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Queue<Integer> q = new LinkedList<>();
+
+        q.add(1);
+        q.add(2);
+        q.add(3);
+        q.add(4);
+
+        interleave(q);
+
+        while (!q.isEmpty()) {
+            System.out.print(q.remove() + " ");
+        }
+    }
+}
