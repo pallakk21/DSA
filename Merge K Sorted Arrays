@@ -1,0 +1,57 @@
+import java.util.*;
+
+class Element {
+    int value;
+    int row;
+    int col;
+
+    Element(int value, int row, int col) {
+        this.value = value;
+        this.row = row;
+        this.col = col;
+    }
+}
+
+public class MergeKSortedArrays {
+
+    public static List<Integer> mergeArrays(int[][] arr) {
+
+        PriorityQueue<Element> pq =
+                new PriorityQueue<>((a, b) -> a.value - b.value);
+
+        List<Integer> result = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            pq.add(new Element(arr[i][0], i, 0));
+        }
+
+        while (!pq.isEmpty()) {
+
+            Element curr = pq.remove();
+            result.add(curr.value);
+
+            if (curr.col + 1 < arr[curr.row].length) {
+                pq.add(new Element(
+                        arr[curr.row][curr.col + 1],
+                        curr.row,
+                        curr.col + 1
+                ));
+            }
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        int arr[][] = {
+                {1,4,7},
+                {2,5,8},
+                {3,6,9}
+        };
+
+        List<Integer> result = mergeArrays(arr);
+
+        System.out.println(result);
+    }
+}
