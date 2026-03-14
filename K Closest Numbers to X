@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class KClosestNumbers {
+
+    public static List<Integer> findClosest(int[] arr, int k, int x) {
+
+        PriorityQueue<int[]> pq =
+                new PriorityQueue<>((a, b) -> b[0] - a[0]);
+
+        for (int num : arr) {
+
+            int dist = Math.abs(num - x);
+
+            pq.add(new int[]{dist, num});
+
+            if (pq.size() > k) {
+                pq.remove();
+            }
+        }
+
+        List<Integer> result = new ArrayList<>();
+
+        while (!pq.isEmpty()) {
+            result.add(pq.remove()[1]);
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        int arr[] = {5,6,7,8,9};
+        int k = 3;
+        int x = 7;
+
+        System.out.println(findClosest(arr, k, x));
+    }
+}
