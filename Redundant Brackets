@@ -1,0 +1,40 @@
+import java.util.Stack;
+
+public class RedundantBrackets {
+
+    public static boolean hasRedundant(String str) {
+
+        Stack<Character> stack = new Stack<>();
+
+        for (char ch : str.toCharArray()) {
+
+            if (ch == ')') {
+
+                int count = 0;
+
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    stack.pop();
+                    count++;
+                }
+
+                stack.pop();
+
+                if (count <= 1) {
+                    return true;
+                }
+
+            } else {
+                stack.push(ch);
+            }
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+        String exp = "((a+b))";
+
+        System.out.println(hasRedundant(exp));
+    }
+}
