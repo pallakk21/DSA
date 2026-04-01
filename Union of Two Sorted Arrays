@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class UnionArray {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4};
+        int[] b = {3, 4, 5, 6};
+
+        ArrayList<Integer> result = new ArrayList<>();
+
+        int i = 0, j = 0;
+
+        while (i < a.length && j < b.length) {
+            if (a[i] < b[j]) {
+                add(result, a[i++]);
+            } else if (a[i] > b[j]) {
+                add(result, b[j++]);
+            } else {
+                add(result, a[i]);
+                i++;
+                j++;
+            }
+        }
+
+        while (i < a.length) add(result, a[i++]);
+        while (j < b.length) add(result, b[j++]);
+
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+
+    static void add(ArrayList<Integer> list, int val) {
+        if (list.isEmpty() || list.get(list.size() - 1) != val) {
+            list.add(val);
+        }
+    }
+}
